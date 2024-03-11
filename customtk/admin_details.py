@@ -3,9 +3,15 @@ from tkinter import *
 from PIL import Image, ImageTk
 
 
+import mysql.connector
+conn=mysql.connector.connect(host='localhost',username='root',password='1234',database='flight_mgt_system')
+my_cursor=conn.cursor()
+
+
+
 def admin_details():
-  window=Toplevel()
-  window.title("ADMIN PAGE")
+  window=Tk()
+  window.title("ADMIN DETAILS")
   window.geometry("1000x500")
   window.minsize(1000,500)
 
@@ -26,12 +32,8 @@ def admin_details():
   admin_code_label=Label(frame1,text="ADMIN CODE:",bg="#FF521B",font=("bold",10))
   admin_code_entry=Entry(frame1,bg="#EDD382")
 
-  reset_details_button=Button(frame1,text="RESET DETAILS")
+  reset_details_button=Button(frame1,text="RESET DETAILS",command=lambda:insert_data())
 
-  username_label=Label(frame1,text="USERNAME:",bg="#FF521B",font=("bold",10),width=10)
-  username_entry=Entry(frame1,bg="#EDD382")
-
-  welcome_message_label=Label(text="Welcome User,Please Enter your Deatils to Log In to the System.",font=("Times new roman",15),bg="#FF521B")
 
 
   #PLACING THE LABELS AND ENTRIES
@@ -47,5 +49,18 @@ def admin_details():
   admin_code_entry.place(relx=0.2255,rely=0.35)
 
   reset_details_button.place(relx=0.70,rely=0.55,relheight=0.1,relwidth=0.25)
+  
+  def insert_data():
+    adminid=admin_id_entry.get()
+    admincode=admin_code_entry.get()
+    pwd=password_entry.get()
+
+    
+    insert_query="INSERT INTO admin_details (admin_id,admin_code,pwd) VALUES (%s,%s,%s)"
+    vals=(adminid,admincode,pwd)
+    
+    my_cursor.execute(insert_query,vals)
+    conn.commit()
 
   window.mainloop()
+admin_details()

@@ -3,7 +3,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 import customtkinter as ctk
 
-from admin_page import admin_page
+# from admin_page import admin_page
 
 window=Tk()
 window.title("FIRST PAGE")
@@ -79,3 +79,4 @@ label.place(x=0,y=0)
 
 
 window.mainloop()
+
