@@ -1,0 +1,26 @@
+# try:
+        #      conn= mysql.connector.connect(host='localhost',user='root',password='@advance#1011', database="flightsys")
+        #      mycursor=conn.cursor()
+        # except:
+        #     messagebox.showerror('Error', 'Database error')
+        #     return
+        
+        # # query='create database userdata'
+        # # mycursor.execute(query)
+        # try:
+        #     query='use flightsys'
+        #     mycursor.execute(query)
+        #     query = 'CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY NOT NULL, email VARCHAR(50), username VARCHAR(50), password VARCHAR(20))'
+        #     mycursor.execute(query)
+            
+        # except:
+        #     mycursor.execute('use flightsys')
+            
+        # query = 'INSERT into users(email , username , password ) values(%s,%s,%s)'
+        # mycursor.execute(query,(email1.get(),username1.get(),passwd.get()))
+        # conn.commit
+        # conn.close
+        # messagebox.showinfo('Success', ' Registration successful')
+        # clear()
+        # app.destroy()    
+        # import login_new
